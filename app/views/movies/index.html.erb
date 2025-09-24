@@ -1,0 +1,64 @@
+<% content_for :title, "Rotten Potatoes" %>
+
+<h1>
+  <%= link_to "🍿 Rotten Potatoes", movies_path(request.query_parameters), class: "title" %>
+</h1>
+
+<p class="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h2>View your movies</h2>
+  <%= link_to 'Add Movie', new_movie_path(request.query_parameters), class: "btn btn-primary" %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th class="<%= header_class('title') %>"><%= sortable_column("title", "Title") %></th>
+      <th class="<%= header_class('rating') %>"><%= sortable_column("rating", "Rating") %></th>
+      <th class="<%= header_class('release_date') %>"><%= sortable_column("release_date", "Release Date") %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td class="<%= cell_class('title') %>">
+          <%= link_to movie.title, movie_path(movie, request.query_parameters) %>
+        </td>
+        <td class="<%= cell_class('rating') %>"><%= movie.rating %></td>
+        <td class="<%= cell_class('release_date') %>">
+          <%= movie.release_date.present? ? movie.release_date.strftime("%Y-%m-%d") : "" %>
+        </td>
+        <td class="action-icons">
+          <%= link_to movie_path(movie, request.query_parameters), title: "View", class: "icon-link" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#7e8c54" class="size-6">
+              <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+              <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd" />
+            </svg>
+          <% end %>
+          <%= link_to edit_movie_path(movie, request.query_parameters), title: "Edit", class: "icon-link" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#ff4000" className="size-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+            </svg>
+          <% end %>
+          <%= button_to movie_path(movie, request.query_parameters),
+            method: :delete,
+            title: "Delete",
+            form: { class: "icon-button-form" },
+            class: "icon-button" do %>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#800000" stroke-width="2">
+              <polyline points="3,6 5,6 21,6"></polyline>
+              <path d="m19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"></path>
+            </svg>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Total movies: <%= @movies.count %></td>
+    </tr>
+  </tfoot>
+</table>

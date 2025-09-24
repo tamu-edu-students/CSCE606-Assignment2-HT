@@ -1,0 +1,20 @@
+<% content_for :title, "View movie" %>
+
+<h1>
+  <%= link_to "🍿 Rotten Potatoes", movies_path(request.query_parameters), class: "title" %>
+</h1>
+
+<p class="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h2><%= @movie.title %></h2>
+  <div class="actions">
+    <%= link_to 'Back to Movies', movies_path(request.query_parameters), class: "btn btn-secondary" %>
+    <%= link_to "Edit movie", edit_movie_path(@movie, request.query_parameters), class: "btn btn-primary" %>
+    <%= button_to "Delete movie", movie_path(@movie, request.query_parameters), method: :delete, class: "btn btn-danger" %>
+  </div>
+</div>
+
+<div class="details">
+  <%= render @movie %>
+</div>
