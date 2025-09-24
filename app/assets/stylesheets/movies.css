@@ -108,14 +108,20 @@ tfoot td {
   text-align: right;
 }
 
-.sorted-header.asc,
-.sorted-cell.asc {
+.sorted-header.asc {
   background-color: #d1ecf1;
 }
 
-.sorted-header.desc,
+.sorted-cell.asc {
+  background-color: #f5fbff;
+}
+
+.sorted-header.desc {
+  background-color: #d8e9dd;
+}
+
 .sorted-cell.desc {
-  background-color: #ecf8d0;
+  background-color: #f2f8f4;
 }
 
 .action-icons {
