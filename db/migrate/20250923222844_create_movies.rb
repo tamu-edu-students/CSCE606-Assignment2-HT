@@ -9,7 +9,6 @@ class CreateMovies < ActiveRecord::Migration[8.0]
       t.integer :duration
       t.text :cast
       t.string :genre
-      t.string :poster_url
 
       t.timestamps
     end

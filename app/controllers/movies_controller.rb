@@ -27,7 +27,7 @@ class MoviesController < ApplicationController
     respond_to do |format|
       if @movie.save
         format.html {
-          redirect_to movie_path(@movie, params.permit(:sort, :direction, :page, :search)),
+          redirect_to movie_path(@movie, params.permit(:sort, :direction)),
           notice: "Movie was successfully created."
         }
         format.json { render :show, status: :created, location: @movie }
@@ -43,7 +43,7 @@ class MoviesController < ApplicationController
     respond_to do |format|
       if @movie.update(movie_params)
         format.html do
-          redirect_to movie_path(@movie, params.permit(:sort, :direction, :page, :search)),
+          redirect_to movie_path(@movie, params.permit(:sort, :direction)),
           notice: "Movie was successfully updated.",
           status: :see_other
         end
@@ -85,6 +85,6 @@ class MoviesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def movie_params
-      params.expect(movie: [ :title, :rating, :description, :release_date, :director, :duration, :cast, :genre, :poster_url ])
+      params.expect(movie: [ :title, :rating, :description, :release_date, :director, :duration, :cast, :genre ])
     end
 end
