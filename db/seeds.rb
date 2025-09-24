@@ -20,7 +20,7 @@ more_movies = [
   { title: 'CODA', rating: 'PG-13',
     release_date: '13-Aug-2021' },
   # new movies
-  { title: 'Inception', rating: 'PG-13', 
+  { title: 'Inception', rating: 'PG-13',
     release_date: '13-Jul-2010',
     description: 'A thief who steals corporate secrets through dream-sharing technology is given a chance to erase his criminal history.',
     director: 'Christopher Nolan',
@@ -28,7 +28,7 @@ more_movies = [
     cast: 'Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page',
     genre: 'Action, Adventure, Sci-Fi'
   },
-  { title: 'Star Wars: Episode IV - A New Hope', rating: 'PG', 
+  { title: 'Star Wars: Episode IV - A New Hope', rating: 'PG',
     release_date: '25-May-1977',
     description: 'Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee, and two droids to save the galaxy.',
     director: 'George Lucas',
@@ -36,7 +36,7 @@ more_movies = [
     cast: 'Mark Hamill, Harrison Ford, Carrie Fisher',
     genre: 'Action, Adventure, Fantasy'
   },
-  { title: 'Avatar', rating: 'PG-13', 
+  { title: 'Avatar', rating: 'PG-13',
     release_date: '18-Dec-2009',
     description: 'A paraplegic Marine dispatched to the moon Pandora becomes torn between following orders and protecting an alien civilization.',
     director: 'James Cameron',
@@ -44,7 +44,7 @@ more_movies = [
     cast: 'Sam Worthington, Zoe Saldana, Sigourney Weaver',
     genre: 'Action, Adventure, Fantasy'
   },
-  { title: 'La La Land', rating: 'PG-13', 
+  { title: 'La La Land', rating: 'PG-13',
     release_date: '09-Dec-2016',
     description: 'While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations.',
     director: 'Damien Chazelle',
